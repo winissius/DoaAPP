@@ -1,11 +1,11 @@
 package com.example.doaapp;
 
 public class Item {
-    private int id;
-    private String nome;
-    private String descricao;
-    private String categoria;
-    private String status;
+    private final int id;
+    private final String nome;
+    private final String descricao;
+    private final String categoria;
+    private final String status;
 
     public Item(int id, String nome, String descricao, String categoria, String status) {
         this.id = id;

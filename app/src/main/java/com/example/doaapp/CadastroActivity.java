@@ -23,9 +23,9 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
     private void salvarItem() {
-        String nome = edtNome.getText().toString();
-        String descricao = edtDescricao.getText().toString();
-        String categoria = edtCategoria.getText().toString();
+        String nome = edtNome.getText().toString().trim();
+        String descricao = edtDescricao.getText().toString().trim();
+        String categoria = edtCategoria.getText().toString().trim();
 
         if (nome.isEmpty() || descricao.isEmpty() || categoria.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();

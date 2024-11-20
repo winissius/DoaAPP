@@ -22,19 +22,27 @@ public class DetalhesActivity extends AppCompatActivity {
         dbHelper = new DatabaseHelper(this);
 
         itemId = getIntent().getIntExtra("ITEM_ID", -1);
-        carregarDetalhes(itemId);
+        if (itemId != -1) {
+            carregarDetalhes(itemId);
+        } else {
+            Toast.makeText(this, "Erro ao carregar detalhes do item.", Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
         findViewById(R.id.btnMarcarDoado).setOnClickListener(v -> marcarComoDoado());
     }
 
     private void carregarDetalhes(int id) {
-        Cursor cursor = dbHelper.obterItens("Disponível");
-        if (cursor.moveToFirst()) {
+        Cursor cursor = dbHelper.obterItemPorId(id);
+        if (cursor != null && cursor.moveToFirst()) {
             txtNome.setText(cursor.getString(cursor.getColumnIndexOrThrow("nome")));
             txtDescricao.setText(cursor.getString(cursor.getColumnIndexOrThrow("descricao")));
             txtCategoria.setText(cursor.getString(cursor.getColumnIndexOrThrow("categoria")));
+            cursor.close();
+        } else {
+            Toast.makeText(this, "Item não encontrado.", Toast.LENGTH_SHORT).show();
+            finish();
         }
-        cursor.close();
     }
 
     private void marcarComoDoado() {
