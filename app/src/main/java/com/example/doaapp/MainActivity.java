@@ -3,8 +3,6 @@ package com.example.doaapp;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,10 +35,16 @@ public class MainActivity extends AppCompatActivity {
         carregarItens();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        carregarItens(); // Atualiza a lista de itens ao retornar para a MainActivity
+    }
+
     private void carregarItens() {
         itemList.clear();
         Cursor cursor = dbHelper.obterItens("Disponível");
-        if (cursor.moveToFirst()) {
+        if (cursor != null && cursor.moveToFirst()) {
             do {
                 int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
                 String nome = cursor.getString(cursor.getColumnIndexOrThrow("nome"));
@@ -49,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
                 String status = cursor.getString(cursor.getColumnIndexOrThrow("status"));
                 itemList.add(new Item(id, nome, descricao, categoria, status));
             } while (cursor.moveToNext());
+            cursor.close();
         }
-        cursor.close();
         itemAdapter.notifyDataSetChanged();
     }
 

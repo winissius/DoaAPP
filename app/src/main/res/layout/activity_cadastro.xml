@@ -1,30 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/txtTitleCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastro de Item"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
 
     <EditText
         android:id="@+id/edtNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome do Item" />
+        android:hint="Nome do Item"
+        android:layout_marginBottom="16dp" />
 
     <EditText
         android:id="@+id/edtDescricao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Descrição" />
+        android:hint="Descrição"
+        android:layout_marginBottom="16dp" />
 
     <EditText
         android:id="@+id/edtCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Categoria" />
+        android:hint="Categoria"
+        android:layout_marginBottom="24dp" />
 
     <Button
         android:id="@+id/btnSalvar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salvar" />
+
 </LinearLayout>
