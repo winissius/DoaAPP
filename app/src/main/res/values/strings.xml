@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">DoaAPP</string>
+    <string name="app_name">DoaApp</string>
+    <string-array name="categorias_array">
+        <item>Livros</item>
+        <item>Eletrônicos</item>
+        <item>Móveis</item>
+        <item>Alimentação</item>
+        <item>Vestuário</item>
+        <item>Eletrodomésticos</item>
+    </string-array>
 </resources>
