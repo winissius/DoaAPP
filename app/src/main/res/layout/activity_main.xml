@@ -10,11 +10,21 @@
         android:id="@+id/txtTitleMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lista de Itens"
+        android:text="Lista de Itens para Doação"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/txtInstrucoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clique em um item para ver mais detalhes"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="16dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
